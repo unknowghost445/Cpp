@@ -1,38 +1,27 @@
-#include <iostream>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-void inputArray(float a[][300], int &m, int &n){
-    cin >> m >> n;
-    for (int i{0}; i<m; ++i){
-        for (int j{0}; j<n; ++j){
-            cin >> a[i][j];
-        }
-    }
-}
-void outputArray(float a[][300], int m, int n){
-    for (int i{0}; i<m; ++i){
-        for (int j{0}; j<n; ++j){
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
+int prime[200002];
 
-int main() {
-    int m,n,i,k;
-    float a[300][300];
-    float b[300][300];
-    float c[300][300];
-    inputArray(a,m,n);
-    inputArray(b,i,k);
-    for (int i{0}; i<m; ++i){
-        for (int j{0}; j<k; ++j){
-            c[i][j]=0;
-            for (int h{0}; h<n; ++h){
-                c[i][j]+= a[i][h]*b[h][j];
+void sang(){
+    prime[0]=prime[1]=0;
+    for(int i{2}; i<=200000; ++i){
+        prime[i]=1;
+    }
+    for(int i{2}; i<=447; ++i){
+        if(prime[i]){
+            for(int j{i*i}; j<=200000; j+=i){
+                prime[j]=0;
             }
         }
     }
-    outputArray(c,m,k);
+}
+
+int main(){
+    sang();
+    int a,b;
+    cin >> a >> b;
+    for(int i{a}; i<=b; ++i){
+        if(prime[i]) cout << i << endl;
+    }
 }
