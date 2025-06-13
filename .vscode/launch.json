@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run without debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/Solution.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build cpp"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+#pragma once
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void Heapify(vector<int>& arr, int arrSize, int i){
+    int Largest_Loc = i;
+
+    int Left = 2 * i + 1;
+    int Right = 2 * i + 2;
+
+    if(Left < arrSize && arr[Largest_Loc] < arr[Left]){
+        Largest_Loc = Left;
+    }
+
+    if(Right < arrSize && arr[Largest_Loc] < arr[Right]){
+        Largest_Loc = Right;
+    }
+
+    if(Largest_Loc != i){
+        swap(arr[Largest_Loc], arr[i]);
+
+        Heapify(arr, arrSize, Largest_Loc);
+    }
+}
+
+void Heap_Sort(vector<int>& arr){
+
+    int arrSize = arr.size();
+
+    for(int i = arrSize / 2 - 1; i >= 0; --i){
+        Heapify(arr, arrSize, i);
+    }
+
+    for(int i = arrSize - 1; i > 0; --i){
+        swap(arr[i], arr[0]);
+
+        Heapify(arr, i, 0);
+    }
+
+}
