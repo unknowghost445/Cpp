@@ -2,6 +2,7 @@
     "files.associations": {
         "*.embeddedhtml": "html",
         "mergesort": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "binary_search_tree": "cpp"
     }
 }
